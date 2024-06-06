@@ -1,0 +1,17 @@
+{% load static %}
+<!-- card -->
+{% for item in itens %}
+<div class="col-xl-4">
+    <div class="card" style="width: 18rem;">
+        <img src="{{item.image.url}}" class="card-img-top img-thumbnail" style="border: 0; height: 200px;" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{item.title}}</h5>
+            <p class="card-text">{{item.description}}</p>
+            <div>
+                <img src="{% static 'assets/img/1077035.png' %}" alt=".." width="20px" height="20px">
+            </div>
+            <textarea style="margin-top: 10px;" name="comment" id="2"></textarea>
+        </div>
+    </div>
+</div>
+{% endfor %} 
