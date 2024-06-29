@@ -18,7 +18,7 @@ class ClothesForm(forms.ModelForm):
             'path': forms.ClearableFileInput(attrs={'class': 'form-control',}),
             'description': forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Description'}),
             'price': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Valor'}),
-            'quantity': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Quantidade'})
+            'quantity': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Quantidade'}),
         }
 
 class CommentForm(forms.ModelForm):
