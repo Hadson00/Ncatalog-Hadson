@@ -1,16 +1,16 @@
 {% extends 'layouts/layout.html' %}
-{% load static %}
-{% block title %}
-<title>Titulo da Página</title>
-{% endblock %}
+
 {% block content %}
-    <form action="{% url 'criar_item' %}" method="post" enctype="multipart/form-data">
-      {% csrf_token %}
-      {{forms.as_p}}
-      <button type="submit" class="btn btn-success">Criar Item</button>
-    </form>
-    <!--Footer Início-->  
-  {% include 'partials/_footer.html' %}
-    
-  <!--Footer Fim-->  
-{% endblock %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <h2 class="text-center">Adicionar Roupa</h2>
+        <form style="font-family: Courier New;" method="post"  enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="text-center my-3">
+              <button type="submit" class="btn btn-success">Salvar</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}  

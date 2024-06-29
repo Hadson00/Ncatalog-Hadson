@@ -1,5 +1,5 @@
 {% load static %}
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
@@ -7,13 +7,21 @@
         {% block title %}
         {% endblock %}
         <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
-        <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
-        <script src="{% static 'assets/js/bootstrap.bundle.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'assets/css/mystyle.css' %}">
     </head>
 	<body>
+        {% include "partials/_nav.html" %}
+        {% include "partials/_alerts.html" %}
 
-    {% block content %} 
-    {% endblock %}
+        {% block content %} 
+        {% endblock %}
+
+        <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+
+        {% include 'partials/_modal.html' %}
+        {% include "partials/_footer.html" %}
+        {% include "partials/_register.html" %}
+        {% include "partials/_login.html" %}
 
 	</body>
 </html>

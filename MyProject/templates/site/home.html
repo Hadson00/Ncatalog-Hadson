@@ -1,6 +1,27 @@
 {% extends 'layouts/layout.html' %}
-{% load static %}
+
 {% block content %}
-    <h2>Welcome, {{ user.username }}!</h2>
-    <a href="{% url 'logout' %}">Logout</a>
+<div style="font-family: Courier New;" class="row m-5">
+    {% if clothes %}
+        {% for clothess in clothes %}
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img class="card-img-top" src="{{ clothess.path.url }}" alt="{{ clothess.title }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ clothess.title }}</h5>
+                        <p class="card-text">{{ clothess.description }}</p>
+                        <a href="{% url 'edit_clothes' clothess.id %}" class="btn btn-warning">Editar</a>
+                        <form method="post" action="{% url 'delete_clothes' clothess.id %}" style="display:inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger">Deletar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
+<div class="text-center">
+    <a href="{% url 'create_clothes' %}" class="btn btn-success m-3">Adicionar Roupa</a>
+</div>
 {% endblock %}

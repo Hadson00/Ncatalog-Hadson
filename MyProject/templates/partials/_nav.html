@@ -1,23 +1,17 @@
-{% load static %}
-<!-- navbar -->
-<section class="mynav">
-    <nav class="navbar navbar-expand-lg d-flex">
+<section>
+    <nav class="navbar navbar-expand-lg d-flex mx-5">
         <div class="container-fluid">
-            <img class="mx-3 img-thumbnail" src="{% static 'assets/img/logo.png' %}" alt="logo" width="50px" height="50px">
+            <a style="color: black; font-family: Impact;" class="navbar-brand" href="{% url 'index' %}">NCatalog</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
                 </button>
-            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </div>
             {% if user.is_authenticated %}
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                Logout
-            </button>
+                <div class="collapse navbar-collapse justify-content-end px-5" id="navbarNav">
+                    <a style="font-family: 'Courier New';" class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                </div>
+                <a  style="font-family: Courier New;" class="nav-link" href="{% url 'logout' %}">Logout</a>
             {% else %}
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                Login
-            </button>
+                <button style="font-family: Courier New;" class="nav-link btn" data-bs-toggle="modal" data-bs-target="#login">Login</button>
             {% endif %}
         </div>
     </nav>
